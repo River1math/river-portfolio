@@ -1,5 +1,5 @@
 import React from "react";
-//import portrait from "../images/river.png";
+
 import {
   Avatar,
   Heading,
@@ -14,7 +14,7 @@ import { motion } from "framer-motion";
 import { FaReact, FaNodeJs, FaJs, FaCode } from "react-icons/fa";
 import FullScreenSection from "./FullScreenSection";
 
-const greeting = "Hello, I am Peter!";
+const greeting = "Hello, I am River!";
 const bio1 = "A Frontend Developer";
 const bio2 = "Specialised in React";
 
@@ -72,12 +72,15 @@ const LandingSection = () => {
           align={{ base: "center", md: "flex-start" }}
           textAlign={{ base: "center", md: "left" }}
           maxWidth="600px"
+          transform="translateY(50px)"
         >
           <MotionHeading
             as="h1"
             size="xl"
-            animation={`${fadeIn} 1s ease-out`}
-            opacity="0"
+            initial={{opacity: 0, y:20}}
+            animate={{opacity: 1, y:0}}
+            color="#576574"
+            transition={{duration: 1}}
           >
             {greeting}
           </MotionHeading>
