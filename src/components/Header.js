@@ -12,8 +12,8 @@ import {
 const socials = [
   { url: "https://github.com/River1math", icon: faGithub, label: "Github" },
   { url: "https://www.linkedin.com/in/river-lee-156403179/", icon: faLinkedin, label: "Linkedin"},
-  { url: "https://medium.com/...", icon: faMedium, Label:"Medium" },
-  { url: "https://stackoverflow.com/users/23600808/de-river", icon: faStackOverflow, Label:"StackOverflow" },
+  { url: "https://medium.com/...", icon: faMedium, label:"Medium" },
+  { url: "https://stackoverflow.com/users/23600808/de-river", icon: faStackOverflow, label:"StackOverflow" },
 ];
 
 const Header = () => {
@@ -38,10 +38,10 @@ const Header = () => {
 
       if (headerRef.current) {
         if (currentScrollY > prevScrollY.current) {
-          // 向下滚动，隐藏 Header（向上位移 headerHeight）
+        
           headerRef.current.style.transform = "translateY(-100%)";
         } else {
-          // 向上滚动，显示 Header
+    
           headerRef.current.style.transform = "translateY(0)";
         }
       }
@@ -60,13 +60,13 @@ const Header = () => {
       top={0}
       left={0}
       right={0}
-      transform="translateY(0)"                     // 初始状态
-      transitionProperty="transform"               // 启用 transform 过渡
-      transitionDuration="0.3s"                    // 过渡时长
-      transitionTimingFunction="ease-in-out"       // 缓动
-      backgroundColor="#18181b"
+      transform="translateY(0)"                     
+      transitionProperty="transform"               
+      transitionDuration="0.3s"                    
+      transitionTimingFunction="ease-in-out"     
       color="white"
       zIndex="1000"
+      bg="#8395a7"
     >
       <Box maxW="1280px" mx="auto">
         <HStack
@@ -84,7 +84,7 @@ const Header = () => {
           >
             River de 
           </Text>
-          {/* 左侧社交图标 */}
+    
           <nav>
             <HStack spacing={{ base: 4, md: 6 }} display={{ base: 'none', md: 'flex' }}>
               {socials.map(({icon, url, label}) => (
@@ -104,9 +104,9 @@ const Header = () => {
             </HStack>
           </nav>
 
-          {/* 右侧锚点链接 */}
+        
           <nav>
-            <HStack spacing={8}>
+            <HStack color="black" fontWeight="semibold" spacing={8}>
               <a href="/#projects-section" onClick={handleClick("projects")}>
                 Projects
               </a>

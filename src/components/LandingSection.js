@@ -19,7 +19,6 @@ const bio1 = "A Frontend Developer";
 const bio2 = "Specialised in React";
 
 const LandingSection = () => {
-  // Animation keyframes
   const fadeIn = keyframes`
     0% { opacity: 0; transform: translateY(20px); }
     100% { opacity: 1; transform: translateY(0); }
@@ -57,6 +56,7 @@ const LandingSection = () => {
           transition={{ duration: 0.8 }}
         >
           <Avatar
+            transform="translateY(23px)"
             src="/river.png"
             size="2xl"
             boxSize="220px"

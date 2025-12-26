@@ -38,28 +38,23 @@ const ContactMeSection = () => {
         .min(25, "Must be at least 25 characters")
         .required("Required"),
     }),
-    onSubmit: async (values, { resetForm }) => {
- 
-      const result = await submit(values);
 
+    // 在 ContactMeSection.js 的 onSubmit 中
+onSubmit: async (values, { resetForm }) => {
+  const result = await submit("https://example.com/contact", values);
 
-      if (result.type === "success") {
- 
-        onOpen({
-          type: "success",
-          message: `${values.firstName}, Thanks for your submission, we will go back to you shortly`,
-        });
-     
-        resetForm();
-      } else {
-     
-        onOpen({
-          type: "error",
-          message: result.message,
-        });
-      }
-    },
-  });
+  if (result && result.type === "success") {
+    onOpen(
+      "success",
+      `${values.firstName}, Thanks for your submission, we will go back to you shortly`
+    );
+    resetForm();
+  } else if (result) {
+    onOpen("error", result.message);
+  }
+},
+
+});
 
   const { handleSubmit, getFieldProps, touched, errors } = formik;
 
@@ -70,7 +65,7 @@ const ContactMeSection = () => {
       py={16}
       spacing={8}
     >
-      <VStack w="1024px" p={32} alignItems="flex-start">
+      <VStack w="100%" mx="auto" maxW="1024px" p={32} alignItems="flex-start">
         <Heading as="h1" id="contactme-section">
           Contact me
         </Heading>
@@ -118,7 +113,7 @@ const ContactMeSection = () => {
                 <FormErrorMessage>{errors.comment}</FormErrorMessage>
               </FormControl>
 
-              {/* Submit */}
+              {/* Submit,the snippet from ContactMeSection.js*/}
               <Button
                 type="submit"
                 isLoading={isLoading}
